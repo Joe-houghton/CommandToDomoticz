@@ -88,7 +88,7 @@ class Domoticz:
         url = blankString.join(seq)
 
         print(url, '\n')
-        response = requests.get(url, auth=(user, pass))
+        response = requests.get(url, auth=(user, password))
         if response.status_code != 200:
             print("Bad Send Request")
             return None
