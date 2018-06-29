@@ -6,6 +6,16 @@ import requests
 
 from collections import namedtuple
 
+# CONFIG START
+
+DOMOTICZ_USER = ''
+DOMOTICZ_PASS = ''
+DOMOTICZ_ADDRESS = 'http://192.168.0.1:8080'
+
+#CONFIG END
+
+
+
 DomoticzDevice = namedtuple("DomoticzDevice", "name idx type")
 
 
@@ -120,8 +130,8 @@ class Domoticz:
 
 
 def main():
-    domoticz = Domoticz("http://192.168.0.1:8080", "", "")
-    #domoticz.PrintObject()
+    domoticz = Domoticz(DOMOTICZ_ADDRESS, DOMOTICZ_USER, DOMOTICZ_PASS)
+    domoticz.PrintObject()
     while True:
         userInput = input("Please enter a Command: \n")
         domoticz.ProcessCommand(userInput)
